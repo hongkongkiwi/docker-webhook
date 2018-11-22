@@ -1,6 +1,6 @@
 FROM almir/webhook
 MAINTAINER  Andy Savage <andy@savage.hk>
-RUN         apk add --update \
+RUN         apk add --no-cache --update \
 							openrc \
 							util-linux bash \
 							curl docker && \
