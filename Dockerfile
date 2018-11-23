@@ -1,10 +1,8 @@
 FROM almir/webhook
 MAINTAINER  Andy Savage <andy@savage.hk>
 RUN         apk add --no-cache --update \
-							openrc \
-							util-linux bash \
+							jq util-linux bash \
 							curl docker && \
-						rc-update add docker boot && \
             rm -rf /var/cache/apk/*
 VOLUME      ["/etc/webhook"]
 EXPOSE      9000
