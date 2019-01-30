@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  webhook:
+    image: index.docker.io/hongkongkiwi/webhook
+    ports:
+      - 9000:9000
+    volumes:
+      - ./webhooks:/etc/webhooks:ro
+    command:
+      - -verbose
+      - -hooks=/etc/webhooks/hooks.json
+      - -hotreload
