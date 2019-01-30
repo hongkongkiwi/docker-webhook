@@ -18,8 +18,7 @@ COPY --from=build /usr/local/bin/webhook /usr/local/bin/webhook
 MAINTAINER  Andy Savage <andy@savage.hk>
 RUN         apk add --no-cache --update \
 							jq util-linux bash git \
-              openssh-client openssh-keygen \
-							python3 curl wget coreutils docker && \
+							curl wget coreutils && \
             rm -rf /var/cache/apk/*
 VOLUME      ["/etc/webhook"]
 EXPOSE      9000
