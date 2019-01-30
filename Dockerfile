@@ -12,14 +12,14 @@ apk del --purge build-deps && \
 rm -rf /var/cache/apk/* && \
 rm -rf /go
 
-FROM docker:latest
+FROM docker:stable-dind
 COPY --from=build /usr/local/bin/webhook /usr/local/bin/webhook
 
 MAINTAINER  Andy Savage <andy@savage.hk>
 RUN         apk add --no-cache --update \
 							jq util-linux bash git \
               openssh-client openssh-keygen \
-							curl wget coreutils docker && \
+							python3 curl wget coreutils docker && \
             rm -rf /var/cache/apk/*
 VOLUME      ["/etc/webhook"]
 EXPOSE      9000
